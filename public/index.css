@@ -258,6 +258,13 @@ main{
     border-radius: 10px;    
 }
 
+.click_contents_box{
+    position: absolute;
+    width: 360px;
+    z-index: 999;
+    background-color: #fff;
+}
+
 .contents{
     position: relative;
     margin: 0 8px 40px 8px;
@@ -337,8 +344,12 @@ main{
 }
 
 .hidden_box{
-    padding-top: 20px;
     display: none;
+}
+
+.click_hidden_box{
+    display: flex;
+    padding-top: 20px;
     flex-direction: column;
     width: 100%;
 }
