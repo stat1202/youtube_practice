@@ -1,5 +1,8 @@
 import React from "react"
-import MainContents from "./MainContents"
+import MainContents from "./Mains/MainContents"
+import Shorts from "./Mains/Shorts"
+import Subscription from "./Mains/Subscription"
+import Gallery from "./Mains/Gallery"
 
 const Main = (props) =>{
     // data
@@ -52,18 +55,21 @@ const Main = (props) =>{
     randomSort()
     const nav_txt = props.nav_txt
     return(
-        nav_txt ==""
-        ?
         <main>
+
             {
+                nav_txt == "" || nav_txt =="홈"
+                ?
                 n_arr.map( (value) =>{
                     return <MainContents data = {mainList[value]}/>
                 })
+                :
+                <React.Fragment>
+                    {nav_txt == "Shorts" && <Shorts/>}
+                    {nav_txt == "구독" && <Subscription/>}
+                    {nav_txt == "보관함" && <Gallery/>}
+                </React.Fragment>
             }
-        </main>
-        :
-        <main>
-            {nav_txt}
         </main>
     )
 }
