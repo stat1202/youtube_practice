@@ -2,7 +2,8 @@ import React from "react"
 import NavIcon from "./NavIcon"
 
 const Nav = (props) =>{
-    // data
+
+    //===== data =====
     const navList = [
         {
             "src" : "./img/nav/home.png",
@@ -21,14 +22,18 @@ const Nav = (props) =>{
             "txt" : "보관함"
         },
     ]
-    // props
     const n = navList.length
     const n_arr = []
     for(let i=0; i< n ;i ++){
         n_arr.push(i)
     }
+
+    //===== props =====
     const navClick = props.navClick
     const setNav = props.setNav
+    // 네이밍 isOpen isClicked 등으로 짓기
+    // 바뀔 가능성이 어떤게 높은가
+    
     return(
         navClick
         ?

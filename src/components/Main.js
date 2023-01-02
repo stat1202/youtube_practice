@@ -5,7 +5,11 @@ import Subscription from "./Mains/Subscription"
 import Gallery from "./Mains/Gallery"
 
 const Main = (props) =>{
-    // data
+
+    // ===== props =====
+    const nav_txt = props.nav_txt
+
+    //===== data =====
     const timer = ["14:21", "8:30", "16:45", "25:16", "52:10", "11:06", "8:31", "41:44", "20:29", "12:46", "13:41", "14:21"]
     const video_head = [`떡볶이 무한리필 vs 마라탕 무한리필! 단 한개만 골라야 한다면?ㅋㅋㅋ`, `솔랭인줄... 대회에서 나온 역대급 1인 캐리 모음!!`, `훈련소에서 살 찔 틈이 없는데 살이 찌게 되는 이유 #푸른거탑제로 EP.11-01 #131016`,
     `겨울철 간단한 김장`, `Playlist 벌써부터 크리스마스 기다리는 사람? Merry Christmas Carol`, `절대 안죽는 흡혈탱커ㅋㅋㅋ스킬 한방=풀피 회복 ㅋㅋㅋㅋ[정글 아트록스]`, `호날두의 짜증과 수아레스의 오열... 캡틴 손흥민이 증명한 '슈퍼스타'의 역할 / 스포츠머그`,
@@ -24,6 +28,8 @@ const Main = (props) =>{
     const n = timer.length
     const n_arr = []
     const mainList = []
+
+    // ===== 배치 작업 =====
     const randomSort = () =>{
         view_num.forEach( (num) => {
             view.push(`조회수 ${num}만회`)
@@ -37,26 +43,27 @@ const Main = (props) =>{
         while( random_set.size < n){
             random_set.add(Math.floor(Math.random()*n))
         }
-        n_arr.forEach( (num) => {
-        mainList.push({
-            "thumb" : thumb[num],
-            "timer" : timer[num],
-            "profile": profile[num],
-            "video_head" : video_head[num],
-            "channel_name" : channel_name[num],
-            "post_time" : post_time[num],
-            "view" : view[num],
-            "h_clock" : h_clock,
-            "h_play" : h_play,
-            "h_set" : h_set
+        random_set.forEach( (num) => {
+            mainList.push({
+                "thumb" : thumb[num],
+                "timer" : timer[num],
+                "profile": profile[num],
+                "video_head" : video_head[num],
+                "channel_name" : channel_name[num],
+                "post_time" : post_time[num],
+                "view" : view[num],
+                "h_clock" : h_clock,
+                "h_play" : h_play,
+                "h_set" : h_set
+            })
         })
-    })
     }
+
     randomSort()
-    const nav_txt = props.nav_txt
+
+    
     return(
         <main>
-
             {
                 nav_txt == "" || nav_txt =="홈"
                 ?
