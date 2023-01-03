@@ -11,4 +11,24 @@ const whatNavClick = (navName) =>{
     }
 }
 
-export {isMenuClick, whatNavClick}
+const thumbClick = (videoInfo) =>{
+    return{
+        "type" : "THUMB_SRC",
+        "videoInfo" : videoInfo
+    }
+}
+
+const changeReply = (reply) =>{
+    return{
+        "type" : "CHANGE_REPLY",
+        "reply" : reply
+    }
+}
+
+const isShareClick = ()=>{
+    return{
+        "type" : "ISSHARE_CLICK"
+    }
+}
+
+export {isMenuClick, whatNavClick, thumbClick, changeReply, isShareClick}

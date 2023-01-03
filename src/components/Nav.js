@@ -2,7 +2,7 @@ import React from "react"
 import {useSelector, useDispatch} from "react-redux"
 
 import NavIcon from "./NavIcon"
-import {isMenuClick, whatNavClick} from "../redux/action"
+import {isMenuClick, whatNavClick, thumbClick} from "../redux/action"
 
 const Nav = () =>{
 
@@ -36,6 +36,7 @@ const Nav = () =>{
 
     // ===== useSelector =====
     const menuClick = useSelector( state => state.menuClick)
+
     // ===== event =====
     const isMenuClickEvent = () =>{
         dispatch(isMenuClick())
@@ -44,6 +45,7 @@ const Nav = () =>{
     const whatNavClickEvent = (e)=>{
         const target_name = navClickEvent(e)
         dispatch(whatNavClick(target_name))
+        dispatch(thumbClick("none"))
     }
 
     const navClickEvent = (e) =>{

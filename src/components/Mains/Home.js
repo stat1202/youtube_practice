@@ -31,8 +31,8 @@ const Home = () =>{
         })
         for( let i = 0 ; i < n; i ++){
             n_arr.push(i)
-            thumb.push(`../contents/thumb/hq720 (${i}).webp`)
-            profile.push(`../contents/profile/profile(${i}).jpg`)
+            thumb.push(`./contents/thumb/hq720 (${i}).webp`)
+            profile.push(`./contents/profile/profile(${i}).jpg`)
         }
         // 랜덤 배치
         while( random_set.size < n){
