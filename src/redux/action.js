@@ -4,5 +4,11 @@ const isMenuClick = () =>{
     }
 }
 
+const whatNavClick = (navName) =>{
+    return{
+        "type" : "WHATNAV_CLICK",
+        "navName" : navName
+    }
+}
 
-export {isMenuClick}
+export {isMenuClick, whatNavClick}

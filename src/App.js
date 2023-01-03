@@ -1,14 +1,14 @@
 import React from "react"
 import Header from "./components/Header"
-import MainNav from "./components/MainNav"
+import Nav from "./components/Nav"
+import Main from "./components/Main"
 
 const App = ()=>{
-    const [navClick, setNav] = React.useState(true)
-
     return(
         <React.Fragment>
-            <Header navClick = {navClick} setNav = {setNav}/>
-            <MainNav navClick = {navClick} setNav = {setNav}/>
+            <Header/>
+            <Nav/>
+            <Main/>
         </React.Fragment>
     )
 }

@@ -1,10 +1,14 @@
 import React from "react"
 
 const MainContents = (props) =>{
+
+    // ===== data =====
     const data = props.data
+    const {timer, thumb, profile, video_head, channel_name, post_time, view, h_clock, h_play,h_set} = {...data}                        
+
+    // ===== state =====
     const [hover, setHover] = React.useState(false)
     const [click, setClick] = React.useState(false)
-    const {timer, thumb, profile, video_head, channel_name, post_time, view, h_clock, h_play,h_set} = {...data}                        
     
     return(
         <div class="contents" onMouseOver={()=>setHover(true)} onMouseOut={()=>setHover(false)}>

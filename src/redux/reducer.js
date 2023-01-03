@@ -2,7 +2,8 @@ import {createStore} from "redux"
 
 // 초기 store
 const init = {
-    "menuClick" : false
+    "menuClick" : false,
+    "navName" : "홈"
 
 }
 
@@ -13,6 +14,11 @@ const reducer = (state = init, action) =>{
             return{
                 ...state,
                 "menuClick" : !state.menuClick
+            }
+        case "WHATNAV_CLICK":
+            return{
+                ...state,
+                "navName" : action.navName
             }
         default:
             return state
