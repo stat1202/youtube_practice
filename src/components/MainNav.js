@@ -1,8 +1,14 @@
 import React from "react"
+import {useSelector, useDispatch} from "react-redux"
+
 import Main from "./Main"
 import Nav from "./Nav"
 
+
 const MainNav = (props) =>{
+
+    //===== dispatch =====
+    const dispatch = useDispatch()
 
     //===== state =====
     const [nav_txt, setTxt] = React.useState("")

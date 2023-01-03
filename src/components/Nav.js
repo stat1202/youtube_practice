@@ -1,8 +1,11 @@
 import React from "react"
+import {useSelector, useDispatch} from "react-redux"
+
 import NavIcon from "./NavIcon"
+import {isMenuClick} from "../redux/action"
 
 const Nav = (props) =>{
-
+    
     //===== data =====
     const navList = [
         {
@@ -28,39 +31,34 @@ const Nav = (props) =>{
         n_arr.push(i)
     }
 
-    //===== props =====
-    const navClick = props.navClick
-    const setNav = props.setNav
+    // ===== dispatch ======
+    const dispatch = useDispatch()
+
+    // ===== useSelector =====
+    const menuClick = useSelector( state => state.menuClick)
+
+    // ===== event =====
+    const isMenuClickEvent = () =>{
+        dispatch(isMenuClick())
+    }
+
     // 네이밍 isOpen isClicked 등으로 짓기
     // 바뀔 가능성이 어떤게 높은가
-    
     return(
-        navClick
-        ?
         <React.Fragment>
-            <nav>
+            <nav id= {menuClick && "click_nav"}>
                 {
                     n_arr.map( (value) =>{
                         return (
-                            <NavIcon data = {navList[value]} type="show"/>
+                            <NavIcon data = {navList[value]} type={menuClick ?"hidden" : "show"}/>
                         )
                     })
                 }
             </nav>
-        </React.Fragment>
-        :
-        <React.Fragment>
-            <nav id="click_nav" >
-                {
-                    n_arr.map( (value) =>{
-                        return (
-                            <NavIcon data = {navList[value]} type="hidden"/>
-                        )
-                    })
-                }
-            </nav>
-            <div id="overlay" onClick={()=>setNav(!navClick)}></div>                    
-        </React.Fragment>
+            {
+                menuClick && <div id="overlay" onClick={isMenuClickEvent}></div>                    
+            }
+        </React.Fragment>           
     )
 }
 

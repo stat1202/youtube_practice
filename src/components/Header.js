@@ -1,8 +1,12 @@
 import React from "react"
+import {useDispatch} from "react-redux"
+
 import HeaderIcon from "./HeaderIcon"
+import {isMenuClick} from "../redux/action"
 
 const Header = (props) =>{
-    // header data
+
+    //===== header data =====
     const headerList = [
         {
             "src" : "../img/header/back.png",
@@ -50,26 +54,32 @@ const Header = (props) =>{
             "id" : "login_icon"
         },
     ]
-    // props
-    const navClick = props.navClick
-    const setNav = props.setNav
-    // event
+
+    // ===== dispatch =====
+    const dispatch = useDispatch()
+
+    // ===== event =====
+    const isMenuClickEvent = () =>{
+        dispatch(isMenuClick())
+    }
+
     const menuEvent = (e) =>{
         const target_id = e.target.id
         switch (target_id){
             case "menu_icon":
-                setNav(!navClick)
+                isMenuClickEvent()
                 break
             case "logo":
                 window.location.reload()
                 break
         }
     }
+    
     return(
         <React.Fragment>
             <header>
                 <HeaderIcon data = {headerList[0]} />
-                <div id="header_left" onClick = {(e)=> menuEvent(e)}>
+                <div id="header_left" onClick = {menuEvent}>
                     <HeaderIcon data = {headerList[1]} />
                     <HeaderIcon data = {headerList[2]}/>
                 </div>
